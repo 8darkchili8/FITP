@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     private bool isOnWall;
     private Vector3 jumpDirection;
 
+    private bool explode;
+    public GameObject explosion;
+    public float explosionRadius, explosionForce;
+
     private Rigidbody rigidbody;
     public GameObject camera;
-    // Start is called before the first frame update
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         jump = Input.GetButton("Jump");
+        explode = Input.GetButton("Explode");
 
         // Direction by camera
         moveDirection = (transform.position - camera.transform.position);
@@ -43,6 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        Explode();
     }
 
     private void Move()
@@ -75,6 +81,32 @@ public class PlayerController : MonoBehaviour
         foreach (ContactPoint c in collision.contacts)
         {
             jumpDirection += c.normal;
+        }
+    }
+
+    private void Explode()
+    {
+        if (explode)
+        {
+            GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(_explosion, 3);
+            knockBack();
+            //Destroy(gameObject);
+        }
+    }
+
+    void knockBack()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+        foreach(Collider closeCollider in colliders)
+        {
+            Debug.Log(closeCollider.name);
+            Rigidbody rigid = closeCollider.GetComponent<Rigidbody>();
+            if (rigid != null)
+            {
+                rigid.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            }
         }
     }
 }

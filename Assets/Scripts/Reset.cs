@@ -10,7 +10,7 @@ public class Reset : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doReset = Input.GetButton("Fire3");
+        doReset = Input.GetButton("Reset");
     }
 
     // Update is called once per frame
