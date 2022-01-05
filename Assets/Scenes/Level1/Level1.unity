@@ -2193,6 +2193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 1
+  explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
+  explosionRadius: 0
+  explosionForce: 0
   camera: {fileID: 963194225}
 --- !u!54 &1604983339
 Rigidbody:
