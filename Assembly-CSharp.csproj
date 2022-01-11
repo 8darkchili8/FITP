@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\enemyAI.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\Scenes\Level1\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
