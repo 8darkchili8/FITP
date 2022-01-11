@@ -103,6 +103,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Imports\POLYGON city pack\Read_me.txt" />
     <None Include="Assets\Imports\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
     <None Include="Assets\Imports\JMO Assets\WarFX\!WarFX Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

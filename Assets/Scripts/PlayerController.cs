@@ -29,26 +29,38 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Movement management
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         jump = Input.GetButton("Jump");
-        explode = Input.GetButton("Explode");
+        
 
         // Direction by camera
         moveDirection = (transform.position - camera.transform.position);
         moveDirection.y = 0;
         Vector3 drift = Quaternion.AngleAxis(90, Vector3.up) * moveDirection;
 
-        // Direction by camera
         moveDirection = moveDirection.normalized * moveVertical + (drift * moveHorizontal).normalized;
         // Direction by keys
         //moveDirection = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+
+        // Explosion management
+        explode = Input.GetButtonDown("Explode");
+        if (explode)
+        {
+            GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(_explosion, 3);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+            knockBack(colliders);
+            colliders = null;
+            //Destroy(gameObject);
+        }
     }
     void FixedUpdate()
     {
         Move();
         Jump();
-        Explode();
     }
 
     private void Move()
@@ -84,20 +96,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Explode()
+    void knockBack(Collider[] colliders)
     {
-        if (explode)
-        {
-            GameObject _explosion = Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(_explosion, 3);
-            knockBack();
-            //Destroy(gameObject);
-        }
-    }
-
-    void knockBack()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        //Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach(Collider closeCollider in colliders)
         {
