@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class enemyAI : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Transform[] waypoints;
     int waypointIndex;
-    Vector3 target;
+
+    //Patrol
+    public Vector3 target;
+    bool walkPointSet;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class enemyAI : MonoBehaviour
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
     }
-    
+
     void IterateWaypointIndex()
     {
         waypointIndex++;
@@ -40,4 +43,5 @@ public class enemyAI : MonoBehaviour
             waypointIndex = 0;
         }
     }
+
 }
