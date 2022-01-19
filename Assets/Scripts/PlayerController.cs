@@ -103,6 +103,12 @@ public class PlayerController : MonoBehaviour
             {
                 rigid.AddExplosionForce(explosionForce, transform.position, explosionRadius, 0.1f);
             }
+
+            if (closeCollider.name.Contains("Soldier"))
+            {
+                // TO DO - Set soldier in ragdoll
+                Debug.Log("To ragdoll");
+            }
         }
     }
 }

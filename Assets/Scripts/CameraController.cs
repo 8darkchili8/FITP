@@ -50,11 +50,11 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            //Debug.Log("Rayed on " + hit.transform.name);
+            Debug.Log("Rayed on " + hit.transform.name);
         }
         else
         {
-            //Debug.Log("Nothing hit");
+            Debug.Log("Nothing hit");
         }
 
     }
