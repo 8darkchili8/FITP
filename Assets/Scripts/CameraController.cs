@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public bool rotateAroundPlayer = true;
     public float rotationSpeed = 5.0f;
 
+    public LayerMask cameraLayers;
     private bool cameraRay;
 
     // Start is called before the first frame update
@@ -42,15 +43,15 @@ public class CameraController : MonoBehaviour
 
         // TO DO - Walls management
         /*
-        LayerMask layers = 1 << gameObject.layer;
-        layers = ~layers;
-        cameraRay = Physics.Raycast(transform.position, playerTransform.position);
+        cameraRay = Physics.Raycast(transform.position, playerTransform.position, cameraLayers);
         Debug.DrawLine(transform.position, playerTransform.position, Color.red,1, false);
         Ray ray = Camera.main.ScreenPointToRay(playerTransform.position);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        //if (Physics.Raycast(ray, out hit))
+        if (cameraRay)
         {
             //Debug.Log("Rayed on " + hit.transform.name);
+            Debug.Log("Rayed on ");
         }
         else
         {

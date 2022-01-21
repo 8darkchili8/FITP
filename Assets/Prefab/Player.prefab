@@ -27,8 +27,8 @@ Transform:
   m_LocalPosition: {x: 0.536, y: 0.89482224, z: 12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2329183306041327270}
   - {fileID: 2329183305327247588}
+  - {fileID: 2329183306041327270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66,7 +66,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2329183304868699317}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2329183305327247578
 MeshFilter:
@@ -127,7 +127,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -206,12 +206,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2329183306041327271}
-  m_LocalRotation: {x: 0.13366258, y: 0.6815847, z: -0.12865612, w: 0.7078307}
-  m_LocalPosition: {x: -0.722, y: 0.282, z: -0.027}
+  m_LocalRotation: {x: 0.13366255, y: 0.6815847, z: -0.12865609, w: 0.7078307}
+  m_LocalPosition: {x: -0.722, y: 0.28199995, z: -0.027000427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2329183304868699317}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2329183306041327259
 Camera:
@@ -280,3 +280,6 @@ MonoBehaviour:
   lookAtPlayer: 1
   rotateAroundPlayer: 1
   rotationSpeed: 5
+  cameraLayers:
+    serializedVersion: 2
+    m_Bits: 8
