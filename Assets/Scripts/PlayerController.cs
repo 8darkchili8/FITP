@@ -14,19 +14,19 @@ public class PlayerController : MonoBehaviour
     private bool isOnWall;
     public bool isWallJumpAllowed;
     private Vector3 jumpDirection;
-    private Rigidbody rigidbody;
+    private Rigidbody rigidB;
     // Explosion variables
     private bool explode;
     public GameObject explosion;
     public float explosionRadius, ExplosionForceOnLight, ExplosionForceOnMedium, ExplosionForceOnHeavy;
     // Camera variables
-    public GameObject camera;
+    public GameObject mainCamera;
     // Layers variables
     private LayerMask propsLayer = 1 << 9;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidB = GetComponent<Rigidbody>();
         jumpDirection = Vector3.up;
     }
 
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         //// Direction by camera
-        moveDirection = (transform.position - camera.transform.position);
+        moveDirection = (transform.position - mainCamera.transform.position);
         moveDirection.y = 0;
         Vector3 drift = Quaternion.AngleAxis(90, Vector3.up) * moveDirection;
         moveDirection = moveDirection.normalized * moveVertical + (drift * moveHorizontal).normalized;;
@@ -53,12 +53,12 @@ public class PlayerController : MonoBehaviour
         jump = Input.GetButtonDown("Jump");
         if (jump && isGrounded)
         {
-            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            rigidB.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         } 
         else if (jump && isWallJumpAllowed && !isGrounded && isOnWall)
         {
-            rigidbody.AddForce(jumpDirection.normalized * jumpForce, ForceMode.Impulse);
-            rigidbody.AddForce((Vector3.up * jumpForce)/2, ForceMode.VelocityChange);
+            rigidB.AddForce(jumpDirection.normalized * jumpForce, ForceMode.Impulse);
+            rigidB.AddForce((Vector3.up * jumpForce)/2, ForceMode.VelocityChange);
         }
 
         // Explosion management
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        rigidbody.AddForce(moveDirection * speed);
+        rigidB.AddForce(moveDirection * speed);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -123,6 +123,11 @@ public class PlayerController : MonoBehaviour
             {
                 // TO DO - Set soldier in ragdoll
                 Debug.Log("To ragdoll");
+            } else if (closeCollider.name.Contains("Barrel"))
+            {
+                // TO DO - Set soldier in ragdoll
+                BarrelController barrelController = closeCollider.GetComponent<BarrelController>();
+                barrelController.isLaunched = true;
             }
         }
     }

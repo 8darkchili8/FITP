@@ -61,9 +61,12 @@
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\Imports\Barrier Pack\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Scenes\Menu\MainMenu.cs" />
     <Compile Include="Assets\Imports\SoldierFree\AttachWeapon.cs" />
+    <Compile Include="Assets\Imports\Barrier Pack\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\Scripts\AirController.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\enemyAI.cs" />
@@ -71,14 +74,13 @@
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
+    <Compile Include="Assets\Imports\Barrier Pack\Scripts\ContrastStretch.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\ExplosionController.cs" />
     <Compile Include="Assets\Scripts\Reset.cs" />
     <Compile Include="Assets\Imports\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Scripts\AirController.cs" />
-    <Compile Include="Assets\Imports\Barrier Pack\Scripts\ContrastStretch.cs" />
-    <Compile Include="Assets\Imports\Barrier Pack\Scripts\PostEffectsBase.cs" />
-    <Compile Include="Assets\Imports\Barrier Pack\Scripts\GlobalFog.cs" />
+    <Compile Include="Assets\Scenes\GameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\BarrelController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -92,6 +94,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Imports\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
+    <None Include="Assets\Imports\Lowpoly_Wasteland_Props\Readme\Readme.txt" />
     <None Include="Assets\Imports\Barrier Pack\Shaders\Contrast Stretch\Apply.shader" />
     <None Include="Assets\Imports\Barrier Pack\Shaders\Contrast Stretch\Adaptation.shader" />
     <None Include="Assets\Imports\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />

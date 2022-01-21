@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bb0b6fa51d1404da428db31d0f7c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   jumpForce: 4
   isWallJumpAllowed: 0
   explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
@@ -179,10 +179,7 @@ MonoBehaviour:
   ExplosionForceOnLight: 8
   ExplosionForceOnMedium: 6
   ExplosionForceOnHeavy: 4
-  camera: {fileID: 2329183306041327271}
-  test:
-    serializedVersion: 2
-    m_Bits: 51
+  mainCamera: {fileID: 2329183306041327271}
 --- !u!1 &2329183306041327271
 GameObject:
   m_ObjectHideFlags: 0
