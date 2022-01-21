@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class enemyAI : MonoBehaviour
 {
     //test poursuite grenade
     
     //test state
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, attackRange, deathRange;
+    public bool playerInSightRange, playerInAttackRange, playerInDeathRange; 
 
     public LayerMask whatIsPlayer;
     public Transform player;
@@ -43,6 +44,7 @@ public class enemyAI : MonoBehaviour
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInDeathRange = Physics.CheckSphere(transform.position, deathRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange)
         {
@@ -59,7 +61,13 @@ public class enemyAI : MonoBehaviour
         {
             animator.SetBool("AttackPlayer", true);
             attack();
+            
 
+        }
+        if (playerInDeathRange)
+        {   Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
+            
         }
         //if (playerInSightRange) Chase();
 
@@ -96,6 +104,8 @@ public class enemyAI : MonoBehaviour
     {
        
        agent.speed = 10f;
+  
+
     }
     private void OnDrawGizmosSelected()
     {
@@ -103,5 +113,7 @@ public class enemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, deathRange);
     }
 }
