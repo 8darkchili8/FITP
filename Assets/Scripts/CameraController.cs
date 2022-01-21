@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
     public Transform playerTransform;
     private Vector3 cameraOffset;
     [Range(0.01f, 1.0f)]
-    private float smoothFactor = 0.15f;
     public bool lookAtPlayer = false;
 
     public bool rotateAroundPlayer = true;
@@ -42,6 +41,7 @@ public class CameraController : MonoBehaviour
 
 
         // TO DO - Walls management
+        /*
         LayerMask layers = 1 << gameObject.layer;
         layers = ~layers;
         cameraRay = Physics.Raycast(transform.position, playerTransform.position);
@@ -50,12 +50,12 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Rayed on " + hit.transform.name);
+            //Debug.Log("Rayed on " + hit.transform.name);
         }
         else
         {
-            Debug.Log("Nothing hit");
+            //Debug.Log("Nothing hit");
         }
-
+        */
     }
 }
